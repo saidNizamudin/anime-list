@@ -40,7 +40,7 @@ function Anime() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const { data, loading, error } = useQuery(GET_ANIME_BY_ID, {
+	const { data, loading } = useQuery(GET_ANIME_BY_ID, {
 		variables: {
 			id: id,
 		},
@@ -118,10 +118,6 @@ function Anime() {
 
 	if (loading) {
 		return <LoopCircleLoading size="large" color="#212121" />;
-	}
-
-	if (error) {
-		return <p>Error :(</p>;
 	}
 
 	return (

@@ -27,7 +27,7 @@ function Home() {
 	const [search, setSearch] = useState<string>('');
 	const [page, setPage] = useState<number>(1);
 
-	const { data, loading, error } = useQuery(GET_ANIME_LIST, {
+	const { data, loading } = useQuery(GET_ANIME_LIST, {
 		variables: {
 			search: search || null,
 			page: page,
