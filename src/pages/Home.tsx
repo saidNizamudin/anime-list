@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { LoopCircleLoading } from 'react-loadingg';
+import ReactLoading from 'react-loading';
 import { GET_ANIME_LIST } from '../clients/anime';
 import { Button, Text } from '../components';
 import AnimeCard from '../components/AnimeCard';
@@ -47,7 +47,20 @@ function Home() {
 	}, [data]);
 
 	if (loading && firstRender) {
-		return <LoopCircleLoading size="large" color="#212121" />;
+		return (
+			<ReactLoading
+				color={'#212121'}
+				height={667}
+				width={375}
+				type="bubbles"
+				css={css`
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				`}
+			/>
+		);
 	}
 
 	return (

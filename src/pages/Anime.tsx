@@ -5,7 +5,7 @@ import { faFolderOpen, faPlusCircle, faSearch } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from 'react';
-import { LoopCircleLoading } from 'react-loadingg';
+import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -117,7 +117,20 @@ function Anime() {
 	}, [data]);
 
 	if (loading) {
-		return <LoopCircleLoading size="large" color="#212121" />;
+		return (
+			<ReactLoading
+				color={'#212121'}
+				height={667}
+				width={375}
+				type="bubbles"
+				css={css`
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				`}
+			/>
+		);
 	}
 
 	return (
